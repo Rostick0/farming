@@ -1,0 +1,7 @@
+@import './../../styles/vars';
+
+.error {
+    color: $error_color;
+    display: inline-block;
+    font-size: 0.75rem;
+}

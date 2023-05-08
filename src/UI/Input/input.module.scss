@@ -1,0 +1,22 @@
+@import './../../styles/vars';
+
+.input {
+    border: 1px solid $ui_color;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    transition: 200ms;
+    padding: 10px 15px;
+    width: 100%;
+
+    &:hover {
+        border-color: $ui_color_hover;
+    }
+
+    &:active {
+        border-color: $ui_color_active;
+    }
+
+    &:focus {
+        border-color: $ui_color_third;
+    }
+}

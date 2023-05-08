@@ -1,0 +1,10 @@
+.checkbox {
+    display: flex;
+    column-gap: 4px;
+
+    &::before {
+        content: "5";
+    }
+
+    &__text {}
+}

@@ -1,0 +1,22 @@
+@import './../../styles/vars';
+
+.button {
+    background-color: $ui_color;
+    color: $ui_color_second;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    display: inline-block;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: 200ms;
+    padding: 10px 15px;
+
+    &:hover {
+        background-color: $ui_color_hover;
+    }
+
+    &:active {
+        background-color: $ui_color_active;
+    }
+}
