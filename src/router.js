@@ -3,7 +3,8 @@ import { Routes, Route } from "react-router-dom";
 import { Loader } from "./UI/Loader";
 
 const MainPage = lazy(() => import('./pages/main'));
-const CatalogPage = lazy(() => import('./pages/catalog'));
+const CatalogListPage = lazy(() => import('./pages/catalog_list'));
+const CatalogItemPage = lazy(() => import('./pages/catalog_item'));
 const ProductPage = lazy(() => import('./pages/product'));
 const CartPage = lazy(() => import('./pages/cart'));
 const LoginPage = lazy(() => import('./pages/login'));
@@ -20,7 +21,8 @@ const AppRouter = () => {
         <Suspense fallback={<Loader />}>
             <Routes>
                 <Route path="/" element={<MainPage />}></Route>
-                <Route path="/catalog/:category" element={<CatalogPage />}></Route>
+                <Route path="/catalog" element={<CatalogListPage />}></Route>
+                <Route path="/catalog/:category" element={<CatalogItemPage />}></Route>
                 <Route path="/product/:id" element={<ProductPage />}></Route>
                 <Route path="/cart" element={<CartPage />}></Route>
                 <Route path="/login" element={<LoginPage />}></Route>
