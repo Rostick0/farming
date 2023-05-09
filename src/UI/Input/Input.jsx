@@ -1,7 +1,7 @@
 import styles from './input.module.scss';
 
 const Input = (props) => {
-    const { className, other } = props;
+    const { className, ...other } = props;
 
     return (
         <input

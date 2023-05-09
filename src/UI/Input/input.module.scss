@@ -19,4 +19,10 @@
     &:focus {
         border-color: $ui_color_third;
     }
+
+    &::placeholder {
+        color: $ui_color_third;
+        font-weight: 500;
+        opacity: 0.33;
+    }
 }

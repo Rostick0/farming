@@ -27,25 +27,6 @@
         margin-bottom: 20px;
     }
 
-    &__search {
-        display: flex;
-        align-items: center;
-        flex-grow: 1;
-        max-width: 600px;
-
-        &_input {
-            border-radius: 0.75rem;
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
-        }
-
-        &_button {
-            border-radius: 0.75rem;
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
-        }
-    }
-
     &__icons {
         display: flex;
         column-gap: 20px;

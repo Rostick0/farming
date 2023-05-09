@@ -1,7 +1,7 @@
 import styles from './checkbox.module.scss';
 
 const Checkbox = (props) => {
-    const { className, children, other } = props;
+    const { className, children, ...other } = props;
 
     return (
         <label className={styles.checkbox + (className ? ' ' + className : '')}>

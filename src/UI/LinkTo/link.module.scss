@@ -4,6 +4,10 @@
     color: $ui_color_third;
     transition: 200ms;
 
+    &_style_blue {
+        color: $ui_color_fourth;
+    }
+
     &:hover {
         color: $ui_color;
     }

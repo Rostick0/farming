@@ -1,10 +1,9 @@
 import { Container } from "../../UI/Container";
-import { Input } from "../../UI/Input";
-import { Button } from "../../UI/Button";
 import { LinkTo } from "../../UI/LinkTo";
 import styles from './header.module.scss';
 import { Link } from "react-router-dom";
 import { HeaderCatalog } from "../HeaderCatalog";
+import { HeaderSearch } from "../HeaderSearch";
 
 const Header = () => {
     return (
@@ -13,10 +12,7 @@ const Header = () => {
                 <div className={styles.header__container}>
                     <div className={styles.header__container_top}>
                         <div className={styles.header__title}><span>FAR</span>Mer</div>
-                        <form className={styles.header__search} action="">
-                            <Input className={styles.header__search_input}></Input>
-                            <Button className={styles.header__search_button}>Поиск</Button>
-                        </form>
+                        <HeaderSearch></HeaderSearch>
                         <div className={styles.header__icons}>
                             <Link className={styles.header__icon} to="/cart">
                                 <svg className={styles.header__icon_cart} stroke="#000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
