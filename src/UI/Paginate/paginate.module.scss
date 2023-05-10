@@ -1,0 +1,47 @@
+@import './../../styles/vars';
+
+.paginate {
+    border-radius: 0.25rem;
+    box-shadow: 0 0.25rem 0.25rem $box_shadow_color;
+    display: inline-flex;
+    overflow: hidden;
+
+    &__break {
+        display: inline-block;
+        padding: 0.5rem
+    }
+
+    &__item {
+        border-bottom: 2px solid transparent;
+        cursor: pointer;
+        display: inline-block;
+        transition: 200ms;
+        padding: 0.5rem;
+
+        svg {
+            transition: 200ms;
+        }
+
+        &:hover {
+            background-color: $ui_color_hover;
+            color: $ui_color_second;
+
+            svg {
+                fill: $ui_color_second;
+            }
+        }
+
+        &:active {
+            background-color: $ui_color_active;
+            color: $ui_color_second;
+
+            svg {
+                fill: $ui_color_second;
+            }
+        }
+
+        &_active {
+            border-color: $ui_color_third;
+        }
+    }
+}

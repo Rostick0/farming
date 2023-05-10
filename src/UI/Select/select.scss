@@ -1,0 +1,67 @@
+@import './../../styles/vars';
+
+.select-react {
+    .select-react {
+        border: 1px solid transparent;
+
+        &__control {
+            border: 1px solid $ui_color;
+            box-shadow: none;
+
+            .select-react__indicator-separator {
+                background-color: $ui_color;
+            }
+
+            &:hover {
+                border-color: $ui_color_hover;
+
+                .select-react__indicator-separator {
+                    background-color: $ui_color_hover;
+                }
+            }
+
+            &--is--focused {
+                border-color: $ui_color_active;
+
+                .select-react__indicator-separator {
+                    background-color: $ui_color_active;
+                }
+
+                .select-react__indicator {
+                    svg {
+                        fill: $ui_color_active;
+                    }
+                }
+            }
+        }
+
+        &__option {
+            cursor: pointer;
+            transition: 200ms;
+
+            &:hover {
+                background-color: $ui_color_hover;
+                color: $ui_color_second;
+            }
+
+            &:active {
+                background-color: $ui_color_active;
+                color: $ui_color_second;
+            }
+
+            &--is-selected {
+                background-color: $ui_color_fourth;
+            }
+
+            &--is-focused {
+                background-color: $ui_color_hover;
+                color: $ui_color_second;
+            }
+
+            &--is-selected {
+                background-color: $ui_color;
+                color: $ui_color_second;
+            }
+        }
+    }
+}

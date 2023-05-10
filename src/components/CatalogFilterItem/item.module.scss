@@ -1,11 +1,15 @@
 .filter {
     &._active {
         .filter__hide {
+            margin-top: 0.5rem;
             height: var(--Heigth);
         }
     }
 
-    &__show {}
+    &__show {
+        cursor: pointer;
+        font-weight: 500;
+    }
 
     &__hide {
         transition: 400ms;

@@ -11,9 +11,9 @@ const Product = ({ className, id, image, title, price, application }) => {
             <Link className={styles.product__image} to={productLink}>
                 <img src={image} alt={title} />
             </Link>
-            {application}
             <LinkTo className={styles.product__title} to={productLink}>{title}</LinkTo>
             <div className={styles.product_price}>{price} ₽</div>
+            {application}
         </div>
     );
 }
