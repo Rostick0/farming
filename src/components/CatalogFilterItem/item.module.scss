@@ -1,0 +1,15 @@
+.filter {
+    &._active {
+        .filter__hide {
+            height: var(--Heigth);
+        }
+    }
+
+    &__show {}
+
+    &__hide {
+        transition: 400ms;
+        overflow: hidden;
+        height: 0;
+    }
+}

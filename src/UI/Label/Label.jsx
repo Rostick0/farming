@@ -1,7 +1,10 @@
 import styles from './label.module.scss';
 
-const Label = (props) => {
-    const { className, children, ...other } = props;
+const Label = ({
+    className,
+    children,
+    ...other
+}) => {
     const styleClassName = className ? ' ' + className : '';
 
     return (

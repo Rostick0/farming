@@ -2,13 +2,13 @@
 
 .catalog {
     position: relative;
+    z-index: 1;
 
     &:hover {
         .catalog__hidden {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(1.5rem);
             max-height: 100vh;
-            padding-top: 24px;
         }
     }
 
@@ -18,10 +18,9 @@
 
     &__hidden {
         box-shadow: 0 0.25rem 0.25rem $box_shadow_color;
-        padding-top: 0;
         opacity: 0;
-        transition: max-height 1000ms ease-in, padding 0ms, all 400ms;
-        transform: translateY(2rem);
+        transition: max-height 1000ms ease-in, all 400ms;
+        transform: translateY(2.5rem);
         position: absolute;
         overflow: hidden;
         width: 100%;

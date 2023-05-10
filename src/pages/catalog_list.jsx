@@ -1,5 +1,7 @@
+import { Container } from '../UI/Container';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import { LayoutDefault } from '../components/LayoutDefault';
+import { CatalogListWidgets } from '../widgets/CatalogWidgets';
 
 const CatalogListPage = () => {
     const breadcrumbsItems = [
@@ -15,8 +17,10 @@ const CatalogListPage = () => {
 
     return (
         <LayoutDefault>
-            <Breadcrumbs items={breadcrumbsItems}></Breadcrumbs>
-
+            <Container>
+                <Breadcrumbs items={breadcrumbsItems}></Breadcrumbs>
+                <CatalogListWidgets></CatalogListWidgets>
+            </Container>
         </LayoutDefault>
     );
 };

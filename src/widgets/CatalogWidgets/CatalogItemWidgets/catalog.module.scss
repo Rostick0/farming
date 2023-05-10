@@ -1,0 +1,28 @@
+.catalog {
+    &__inner {
+        display: flex;
+        align-items: flex-start;
+        column-gap: 2rem;
+    }
+    
+    &__search {
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        &_icon {
+            cursor: pointer;
+            position: absolute;
+            right: 0.5rem;
+        }
+    }
+
+    &__content {
+        flex-grow: 1;
+    }
+
+    &__product_list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

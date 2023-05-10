@@ -11,7 +11,7 @@ const Header = () => {
             <Container>
                 <div className={styles.header__container}>
                     <div className={styles.header__container_top}>
-                        <div className={styles.header__title}><span>FAR</span>Mer</div>
+                        <Link className={styles.header__title} to="/"><span>FAR</span>Mer</Link>
                         <HeaderSearch></HeaderSearch>
                         <div className={styles.header__icons}>
                             <Link className={styles.header__icon} to="/cart">

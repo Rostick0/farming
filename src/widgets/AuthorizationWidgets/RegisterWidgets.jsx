@@ -5,6 +5,7 @@ import { ErrorText } from '../../UI/ErrorText';
 import { LinkTo } from '../../UI/LinkTo';
 import { Label } from '../../UI/Label';
 import styles from './authorization.module.scss';
+import { Title } from '../../UI/Title';
 
 const RegisterWidgets = () => {
     const initialValues = { email: '', password: '' };
@@ -34,7 +35,7 @@ const RegisterWidgets = () => {
 
     return (
         <div className={styles.authorization}>
-            <div className={styles.authorization__title}>Создание нового аккаунта</div>
+            <Title className={styles.authorization__title}>Создание нового аккаунта</Title>
             <Formik
                 initialValues={initialValues}
                 validate={validateForm}

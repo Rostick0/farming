@@ -1,11 +1,14 @@
 import styles from './input.module.scss';
 
-const Input = (props) => {
-    const { className, ...other } = props;
+const Input = ({
+    className,
+    ...other
+}) => {
+    const styleClassName = className ? ' ' + className : '';
 
     return (
         <input
-            className={styles.input + (className ? ' ' + className : '')}
+            className={styles.input + styleClassName}
             {...other}
         />
     );

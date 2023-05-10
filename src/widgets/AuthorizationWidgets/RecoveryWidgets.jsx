@@ -5,6 +5,7 @@ import { ErrorText } from '../../UI/ErrorText';
 import { LinkTo } from '../../UI/LinkTo';
 import { Label } from '../../UI/Label';
 import styles from './authorization.module.scss';
+import { Title } from '../../UI/Title';
 
 const RecoveryWidgets = () => {
     const initialValues = { email: '', password: '' };
@@ -30,7 +31,7 @@ const RecoveryWidgets = () => {
 
     return (
         <div className={styles.authorization}>
-            <div className={styles.authorization__title}>Восстановления пароля</div>
+            <Title className={styles.authorization__title}>Восстановления пароля</Title>
             <Formik
                 initialValues={initialValues}
                 validate={validateForm}
