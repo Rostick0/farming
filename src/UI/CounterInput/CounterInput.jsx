@@ -11,7 +11,6 @@ const CounterInput = ({
 }) => {
     const styleClassName = className ? ' ' + className : '';
     const [counter, setCounter] = useState(count);
-    // const firstUpdate = useRef(true);
     const init = useInit();
 
     const incrementCount = () => {
@@ -39,9 +38,12 @@ const CounterInput = ({
     return (
         <div className={styles.counter + styleClassName}>
             <div
-                className={styles.counter__button}
+                className={styles.counter__button + ' ' + styles.counter__decrement}
                 onClick={decrementCount}
-            >-</div>
+            >
+                {/* <span>-</span> */}
+                -
+            </div>
             <input
                 className={styles.counter__input}
                 type="number"
@@ -49,9 +51,12 @@ const CounterInput = ({
                 onChange={onChange}
             />
             <div
-                className={styles.counter__button}
+                className={styles.counter__button + ' ' + styles.counter__increment}
                 onClick={incrementCount}
-            >+</div>
+            >
+                {/* <span>+</span> */}
+                +
+            </div>
         </div>
     );
 };

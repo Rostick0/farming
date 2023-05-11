@@ -10,32 +10,49 @@
     transition: 200ms;
     padding: 0.625rem 1rem;
 
-    &_style_green {
-        background-color: $ui_color;
-        color: $ui_color_second;
+    &_style {
+        &_green {
+            background-color: $ui_color;
+            color: $ui_color_second;
 
-        &:hover {
-            background-color: $ui_color_hover;
+            &:hover {
+                background-color: $ui_color_hover;
+            }
+
+            &:active {
+                background-color: $ui_color_active;
+            }
         }
 
-        &:active {
-            background-color: $ui_color_active;
+        &_green-outline {
+            background-color: transparent;
+            color: $ui_color;
+            border-color: $ui_color;
+
+            &:hover {
+                color: $ui_color_hover;
+                border-color: $ui_color_hover;
+            }
+
+            &:active {
+                color: $ui_color_active;
+                border-color: $ui_color_active;
+            }
         }
-    }
 
-    &_style_green-outline {
-        background-color: transparent;
-        color: $ui_color;
-        border-color: $ui_color;
+        &_red {
+            background-color: $red_color;
+            color: $ui_color_second;
 
-        &:hover {
-            color: $ui_color_hover;
-            border-color: $ui_color_hover;
-        }
+            &:hover {
+                background-color: $red_color_hover;
+                color: $ui_color_second;
+            }
 
-        &:active {
-            color: $ui_color_active;
-            border-color: $ui_color_active;
+            &:active {
+                background-color: $red_color_active;
+                color: $ui_color_second;
+            }
         }
     }
 }

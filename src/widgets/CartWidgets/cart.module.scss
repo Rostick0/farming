@@ -1,3 +1,23 @@
 .cart {
-    
+    &__content {
+        display: flex;
+        align-items: flex-start;
+        grid-gap: 3rem;
+        flex-wrap: wrap;
+    }
+
+    &__product {
+        flex-grow: 1;
+
+        &_more {
+            display: block;
+            margin: 1.5rem auto 0;
+        }
+    }
+
+    &__links {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 2rem;
+    }
 }

@@ -2,8 +2,9 @@ import { Button } from '../../UI/Button';
 import { LinkTo } from '../../UI/LinkTo';
 import { Title } from '../../UI/Title';
 import { Container } from '../../UI/Container';
-import { CartProductItem } from '../../components/CartProductItem';
 import styles from './cart.module.scss';
+import { CartResult } from '../../components/CartResult';
+import { CartProductList } from '../../components/CartProductList';
 
 const CartWidgets = () => {
     const products = [
@@ -19,36 +20,19 @@ const CartWidgets = () => {
     return (
         <div>
             <Container>
-                <Title>Коризна</Title>
+                <Title>Корзина</Title>
                 <div className={styles.cart__content}>
-                    <div className="cart__product">
-                        <div className="cart__product_list">
-                            {/* / */}
-                            {products.map(product => (
-                                <CartProductItem
-                                    key={product?.id}
-                                    id={product?.id}
-                                    image={product?.image}
-                                    title={product?.title}
-                                    price={product?.price}
-                                    count={product?.count}
-                                ></CartProductItem>
-                            ))}
+                    <div className={styles.cart__product}>
+                        <CartProductList products={products}></CartProductList>
+                        <Button className={styles.cart__product_more}>Загрузить ещё</Button>
+                        <div className={styles.cart__links}>
+                            <LinkTo to="/catalog">
+                                <Button styleColor="green-outline">В каталог</Button>
+                            </LinkTo>
+                            <Button to="#" styleColor="red">Очистка корзины</Button>
                         </div>
-                        <Button>Загрузить ещё</Button>
                     </div>
-                    <div className="cart__result">
-                        <div className="cart__result_title">Заказ</div>
-                        <div className="cart__result_amount">
-                            <strong>Итого:</strong>
-                            <strong className="cart__result_price">12 333 ₽</strong>
-                        </div>
-                        <Button>Заказать</Button>
-                    </div>
-                </div>
-                <div>
-                    <LinkTo to="/catalog">В каталог</LinkTo>
-                    <Button>Очистка корзины</Button>
+                    <CartResult></CartResult>
                 </div>
             </Container>
         </div>

@@ -1,17 +1,66 @@
 @import './../../styles/vars';
 
 .counter {
-    &__input {
-        // border: 1px solid transparent;
-        // transition: 200ms;
-        // height: 100%;
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.25rem;
+
+    &__button {
+        border: 1px solid transparent;
+        cursor: pointer;
+        user-select: none;
+        display: flex;
+        justify-content: center;
+        transition: 200ms;
+        width: 1.5rem;
+        height: 1.5rem;
 
         &:hover {
             border-color: $ui_color_hover;
+            color: $ui_color_hover;
         }
 
         &:active {
             border-color: $ui_color_active;
+            color: $ui_color_active;
+        }
+    }
+
+    &__decrement {
+        border-top-left-radius: 0.25rem;
+        border-bottom-left-radius: 0.25rem;
+        line-height: 0.95;
+    }
+
+    &__increment {
+        border-top-right-radius: 0.25rem;
+        border-bottom-right-radius: 0.25rem;
+        line-height: 0.75;
+    }
+
+    &__input {
+        border: 1px solid transparent;
+        // border-radius: 0.2rem;
+        align-self: stretch;
+        text-align: center;
+        line-height: 1;
+        transition: 200ms;
+        width: 100%;
+        max-width: 2rem;
+
+        &:hover {
+            border-color: $ui_color_hover;
+            color: $ui_color_hover;
+        }
+
+        &:active {
+            border-color: $ui_color_active;
+            color: $ui_color_active;
+        }
+
+        &:focus {
+            border-color: $ui_color_third;
+            color: $ui_color_third;
         }
     }
 }

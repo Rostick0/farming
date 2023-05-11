@@ -8,7 +8,8 @@ const CartProductItem = ({
     image,
     title,
     price,
-    count
+    count,
+    description
 }) => {
     return (
         <div className={styles.product}>
@@ -16,22 +17,24 @@ const CartProductItem = ({
                 <img src={image} alt={title} />
             </div>
             <div className={styles.product__content}>
-                <div className={styles.d}>
-                    <LinkTo
-                        className={styles.product__title}
-                        to={`/product/${id}`}
-                    >{title}</LinkTo>
-                    <div className={styles.product__price}>{price}</div>
+                <div className={styles.product__content_top}>
+                    <div className={styles.d}>
+                        <LinkTo
+                            className={styles.product__title}
+                            to={`/product/${id}`}
+                        >{title}</LinkTo>
+                        <div className={styles.product__price}>{price} ₽ за 1</div>
+                    </div>
+                    <div className={styles.d}>
+                        <CounterInput
+                            count={count}
+                            onCountChange={e => console.log(e)}
+                        ></CounterInput>
+                        <div className={styles.product__price}><strong>Сумма:</strong> {price * count} ₽</div>
+                    </div>
+                    <SvgXDelete className={styles.product__delete}></SvgXDelete>
                 </div>
-                <div className={styles.d}>
-                    <CounterInput
-                        count={count}
-                        onCountChange={e => console.log(e)}
-                    ></CounterInput>
-                    <div className={styles.product__count}>{count}</div>
-                    <div className={styles.product__price}>{price * count}</div>
-                </div>
-                <SvgXDelete></SvgXDelete>
+                {description && <div className={styles.product__description}>{description}</div>}
             </div>
         </div>
     );
