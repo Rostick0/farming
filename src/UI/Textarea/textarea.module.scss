@@ -1,12 +1,13 @@
 @import './../../styles/vars';
 
-.input {
+.textarea {
     border: 1px solid $ui_color;
     border-radius: 0.25rem;
     font-size: 1rem;
     transition: 200ms;
     padding: 0.625rem 1rem;
     width: 100%;
+    min-height: 5rem;
 
     &:hover {
         border-color: $ui_color_hover;
