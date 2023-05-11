@@ -1,6 +1,7 @@
 @import './../../styles/vars';
 
 .product {
+    border-radius: 0.25rem;
     box-shadow: 0 0.25rem 0.25rem $box_shadow_color;
     display: flex;
     column-gap: 1.2rem;

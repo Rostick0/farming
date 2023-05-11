@@ -1,3 +1,4 @@
+import LazyLoad from 'react-lazy-load';
 import { Link } from "react-router-dom";
 import styles from './item.module.scss';
 
@@ -6,7 +7,14 @@ const CatalogListItem = ({ category, title, image }) => {
         <li className={styles.item}>
             <Link className={styles.item__link} to={`/catalog/${category}`}>
                 <div className={styles.item__image}>
-                    <img src={image} alt={title} />
+                    <LazyLoad>
+                        <img
+                            src={image}
+                            alt={title}
+                            decoding="async"
+                            loading="lazy"
+                        />
+                    </LazyLoad>
                 </div>
                 <div className={styles.item__title}>{title}</div>
             </Link>

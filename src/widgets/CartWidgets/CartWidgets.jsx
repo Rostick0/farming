@@ -24,12 +24,11 @@ const CartWidgets = () => {
                 <div className={styles.cart__content}>
                     <div className={styles.cart__product}>
                         <CartProductList products={products}></CartProductList>
-                        <Button className={styles.cart__product_more}>Загрузить ещё</Button>
                         <div className={styles.cart__links}>
                             <LinkTo to="/catalog">
                                 <Button styleColor="green-outline">В каталог</Button>
                             </LinkTo>
-                            <Button to="#" styleColor="red">Очистка корзины</Button>
+                            <Button styleColor="red">Очистка корзины</Button>
                         </div>
                     </div>
                     <CartResult></CartResult>

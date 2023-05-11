@@ -4,6 +4,7 @@
     display: inline-flex;
     align-items: center;
     font-size: 1.25rem;
+    height: 1.5rem;
 
     &__button {
         border: 1px solid transparent;
@@ -13,7 +14,7 @@
         justify-content: center;
         transition: 200ms;
         width: 1.5rem;
-        height: 1.5rem;
+        height: 100%;
 
         &:hover {
             border-color: $ui_color_hover;
@@ -35,7 +36,7 @@
     &__increment {
         border-top-right-radius: 0.25rem;
         border-bottom-right-radius: 0.25rem;
-        line-height: 0.75;
+        line-height: 0.95;
     }
 
     &__input {

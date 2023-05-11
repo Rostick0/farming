@@ -4,7 +4,7 @@ import { useLayoutEffect, useState } from "react";
 
 const CounterInput = ({
     className,
-    count,
+    count = 0,
     onCountChange,
     min = 0,
     max = null,
@@ -40,10 +40,7 @@ const CounterInput = ({
             <div
                 className={styles.counter__button + ' ' + styles.counter__decrement}
                 onClick={decrementCount}
-            >
-                {/* <span>-</span> */}
-                -
-            </div>
+            >-</div>
             <input
                 className={styles.counter__input}
                 type="number"
@@ -53,10 +50,7 @@ const CounterInput = ({
             <div
                 className={styles.counter__button + ' ' + styles.counter__increment}
                 onClick={incrementCount}
-            >
-                {/* <span>+</span> */}
-                +
-            </div>
+            >+</div>
         </div>
     );
 };

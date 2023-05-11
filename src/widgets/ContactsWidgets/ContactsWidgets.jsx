@@ -1,3 +1,4 @@
+import LazyLoad from 'react-lazy-load';
 import { Container } from "../../UI/Container";
 import { Title } from "../../UI/Title";
 import { Formik, Form, Field, ErrorMessage } from 'formik';
@@ -49,21 +50,30 @@ const ContactsWidgets = () => {
     return (
         <div>
             <div className={styles.contacts__map}>
-                <iframe
-                    loading="lazy"
-                    src="https://yandex.ru/map-widget/v1/?um=constructor%3A1c845d5716e5bd576213c376a3a4c41b280d13a7e63272741d2f4441057a10b0&amp;source=constructo"
-                    title="Адрес"
-                    width="100%"
-                    height="400"
-                    frameborder="0"
-                ></iframe>
+                <LazyLoad width="100%" height="400">
+                    <iframe
+                        loading="lazy"
+                        src="https://yandex.ru/map-widget/v1/?um=constructor%3A1c845d5716e5bd576213c376a3a4c41b280d13a7e63272741d2f4441057a10b0&amp;source=constructo"
+                        title="Адрес"
+                        width="100%"
+                        height="400"
+                        frameBorder="0"
+                    ></iframe>
+                </LazyLoad>
             </div>
             <Container>
                 <Title>Контактная информация</Title>
                 <div className={styles.contacts__content}>
                     <div className={styles.contacts__content_inner}>
                         <div className={styles.contacts__image}>
-                            <img src="https://krot.info/uploads/posts/2021-11/thumbs/1638215175_50-krot-info-p-moskva-reka-krasivie-foto-54.jpg" alt="" />
+                            <LazyLoad>
+                                <img
+                                    src="https://krot.info/uploads/posts/2021-11/thumbs/1638215175_50-krot-info-p-moskva-reka-krasivie-foto-54.jpg"
+                                    alt=""
+                                    decoding="async"
+                                    lazy="loading"
+                                />
+                            </LazyLoad>
                         </div>
                         <ul className={styles.contacts__info}>
                             <li className={styles.info__item}>
