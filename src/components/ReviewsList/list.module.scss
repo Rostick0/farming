@@ -1,1 +1,29 @@
-.reviews__list {}
+.reviews {
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 1.25rem;
+    }
+
+    &__more {
+        margin-top: 1.25rem;
+    }
+
+    @media (max-width: 1440px) {
+        &__list {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    @media (max-width: 1024px) {
+        &__list {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 700px) {
+        &__list {
+            grid-template-columns: 1fr;
+        }
+    }
+}
