@@ -1,0 +1,15 @@
+@import './../../styles/vars';
+
+.delete {
+    cursor: pointer;
+    fill: $red_color;
+    transition: 200ms;
+
+    &:hover {
+        fill: $red_color_hover;
+    }
+
+    &:active {
+        fill: $red_color_active;
+    }
+}

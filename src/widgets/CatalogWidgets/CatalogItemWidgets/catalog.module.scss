@@ -75,7 +75,7 @@
             &>*,
             button {
                 font-size: 0.85rem;
-                flex-grow: 1;
+                flex: 1 0 calc(50% - 0.5rem);
                 width: 100%;
             }
         }

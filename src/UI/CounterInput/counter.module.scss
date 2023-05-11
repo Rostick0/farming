@@ -1,0 +1,17 @@
+@import './../../styles/vars';
+
+.counter {
+    &__input {
+        // border: 1px solid transparent;
+        // transition: 200ms;
+        // height: 100%;
+
+        &:hover {
+            border-color: $ui_color_hover;
+        }
+
+        &:active {
+            border-color: $ui_color_active;
+        }
+    }
+}

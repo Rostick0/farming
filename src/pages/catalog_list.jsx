@@ -19,8 +19,8 @@ const CatalogListPage = () => {
         <LayoutDefault>
             <Container>
                 <Breadcrumbs items={breadcrumbsItems}></Breadcrumbs>
-                <CatalogListWidgets></CatalogListWidgets>
             </Container>
+            <CatalogListWidgets></CatalogListWidgets>
         </LayoutDefault>
     );
 };

@@ -1,0 +1,1 @@
+export { ReviewsWidgets } from './ReviewsWidgets';

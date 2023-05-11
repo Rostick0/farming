@@ -1,4 +1,5 @@
 import { CatalogListItem } from '../../../components/CatalogListItem';
+import { Container } from '../../../UI/Container';
 import { Title } from '../../../UI/Title';
 import styles from './catalog.module.scss';
 
@@ -33,16 +34,18 @@ const CatalogListWidgets = () => {
 
     return (
         <div className={styles.catalog}>
-            <Title className={styles.catalog__title}>Каталог товаров</Title>
-            <ul className={styles.catalog__list}>
-                {catalogList.map(item => (
-                    <CatalogListItem
-                        id={item?.category}
-                        title={item?.title}
-                        image={item?.image}
-                    ></CatalogListItem>
-                ))}
-            </ul>
+            <Container>
+                <Title className={styles.catalog__title}>Каталог товаров</Title>
+                <ul className={styles.catalog__list}>
+                    {catalogList.map(item => (
+                        <CatalogListItem
+                            id={item?.category}
+                            title={item?.title}
+                            image={item?.image}
+                        ></CatalogListItem>
+                    ))}
+                </ul>
+            </Container>
         </div>
     );
 };
