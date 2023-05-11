@@ -32,7 +32,7 @@ const ProductWidgets = ({ id }) => {
             text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus voluptatum in necessitatibus mollitia accusamus autem nobis vel saepe pariatur. Velit totam non nemo quam. Voluptas nihil explicabo iste facere cupiditate!'
         },
         {
-            id: 2,
+            id: 3,
             image: 'https://webtopsolutions.org/img/team.png',
             name: 'Админ',
             raiting: 5,
@@ -40,13 +40,13 @@ const ProductWidgets = ({ id }) => {
         },
         ,
         {
-            id: 2,
+            id: 4,
             image: 'https://webtopsolutions.org/img/team.png',
             name: 'Админ',
             raiting: 5,
             text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, aperiam accusantium aliquid sequi nisi minus ipsum nemo commodi temporibus odio vitae mollitia perferendis repellendus, optio ducimus. Vitae, officiis tempore. Id!'
         }
-    ]
+    ];
 
     return (
         <div className={styles.product}>

@@ -12,6 +12,7 @@ const ReviewsList = ({ reviews }) => {
             <div className={styles.reviews__list}>
                 {reviews?.map(review => (
                     <ReviewsItem
+                        key={review?.id}
                         id={review?.id}
                         image={review?.image}
                         name={review?.name}

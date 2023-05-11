@@ -7,6 +7,7 @@
         &__control {
             border: 1px solid $ui_color;
             box-shadow: none;
+            padding-left: 0.5rem;
 
             .select-react__indicator-separator {
                 background-color: $ui_color;
@@ -33,6 +34,12 @@
                     }
                 }
             }
+        }
+
+        &__placeholder {
+            color: $ui_color_active;
+            font-weight: 500;
+            opacity: 0.33;
         }
 
         &__option {

@@ -19,6 +19,13 @@ const CatalogItemWidgets = () => {
         console.log(page)
     };
 
+    const sortOptions = [
+        { value: 'price_max', label: 'Сначала дорогие' },
+        { value: 'price_min', label: 'Сначала дешевые' },
+        { value: 'a_z', label: 'По алфавиту' },
+        { value: 'z_a', label: 'По алфавиту в обратном порядке' },
+    ];
+
     const products = [
         {
             id: 1,
@@ -80,12 +87,7 @@ const CatalogItemWidgets = () => {
                             <div className={styles.catalog__sort_title}>Сортировать по:</div>
                             <Select
                                 className={styles.catalog__sort_select}
-                                options={[
-                                    { value: 'price_max', label: 'Сначала дорогие' },
-                                    { value: 'price_min', label: 'Сначала дешевые' },
-                                    { value: 'a_z', label: 'По алфавиту' },
-                                    { value: 'z_a', label: 'По алфавиту в обратном порядке' },
-                                ]}
+                                options={sortOptions}
                             ></Select>
                         </div>
                         <div className={styles.catalog__product_list}>

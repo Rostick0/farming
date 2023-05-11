@@ -18,7 +18,7 @@ const ReviewsItem = ({
                     className={styles.review__name}
                     to={`/profile/${id}`}
                 >{name}</LinkTo>
-                {<div className={styles.review__raiting}><strong>Рейтинг:</strong> {raiting}/5</div> ?? <span>Рейтинг не указан</span>}
+                {<div className={styles.review__raiting}><strong>Оценка:</strong> {raiting}/5</div> ?? <span>Нет оценки</span>}
             </div>
             <div className={styles.review__text}>{text}</div>
         </div>
