@@ -1,0 +1,1 @@
+export { PartnersWidgets } from './PartnersWidgets';
