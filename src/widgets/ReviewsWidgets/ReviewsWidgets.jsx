@@ -1,6 +1,4 @@
-import { Title } from '../../UI/Title';
 import { ReviewsList } from '../../components/ReviewsList';
-import styles from './reviews.module.scss';
 import { ReviewsForm } from '../../components/ReviewsForm';
 
 const ReviewsWidgets = () => {

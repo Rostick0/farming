@@ -13,8 +13,7 @@ const Select = ({
     isSearchable,
     noOptionsMessage,
     value,
-    autoFocus,
-    type
+    autoFocus
 }) => {
     const styleClassName = className ? ' ' + className : '';
 
@@ -33,7 +32,7 @@ const Select = ({
             noOptionsMessage={noOptionsMessage}
             value={value}
             autoFocus={autoFocus}
-            type={type}
+            // {...other}
             components={{ NoOptionsMessage: () => "Список пуст" }}
         ></ReactSelect>
     );

@@ -1,6 +1,5 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import styles from './form.module.scss';
-import { Input } from '../../UI/Input';
 import { Textarea } from '../../UI/Textarea';
 import { Select } from '../../UI/Select';
 import { ErrorText } from '../../UI/ErrorText';
@@ -22,6 +21,7 @@ const ReviewsForm = ({
     const initialValues = { raiting: '', text: '' };
     const validateForm = values => {
         const errors = {};
+
         if (!values.raiting) {
             errors.raiting = 'Укажите рейтинг';
         }
@@ -34,7 +34,7 @@ const ReviewsForm = ({
     };
 
     return (
-        <>
+        <div className={styles.form_reviews}>
             <Title>Оставьте отзыв</Title>
             <Formik
                 initialValues={initialValues}
@@ -43,23 +43,16 @@ const ReviewsForm = ({
             >
                 {({ isSubmitting }) => (
                     <Form className={styles.form}>
-                        {/* <Label>
-                            <Select
-                                name="raiting"
-                                options={optionReviews}
-                                isSearchable={false}
-                            ></Select>
-                            <ErrorMessage name="raiting" component={ErrorText} />
-                        </Label> */}
                         <Field name="raiting">
                             {({ field, form, meta }) => (
                                 <Label>
                                     <Select
-                                        {...field}
+                                        onChange={e => {
+                                            form.setFieldValue('raiting', e.value)
+                                        }}
                                         options={optionReviews}
                                         isSearchable={false}
                                     ></Select>
-                                    {/* <input type="text" {...field} placeholder="First Name" /> */}
                                     {meta.touched &&
                                         meta.error && <ErrorText>{meta.error}</ErrorText>}
                                 </Label>
@@ -73,7 +66,7 @@ const ReviewsForm = ({
                     </Form>
                 )}
             </Formik>
-        </>
+        </div>
     );
 };
 

@@ -5,6 +5,7 @@ import styles from './product.module.scss';
 import { ReviewsList } from "../../components/ReviewsList";
 import { Container } from "../../UI/Container";
 import { ProductSliderImage } from "../../components/ProductSliderImage/ProductSliderImage";
+import { ReviewsForm } from "../../components/ReviewsForm";
 
 const ProductWidgets = ({ id }) => {
     const images = [];
@@ -48,6 +49,13 @@ const ProductWidgets = ({ id }) => {
         }
     ];
 
+    const onSubmitForm = (values, { setSubmitting }) => {
+        setTimeout(() => {
+            alert(JSON.stringify(values, null, 2));
+            setSubmitting(false);
+        }, 400);
+    };
+
     return (
         <div className={styles.product}>
             <Container>
@@ -85,6 +93,9 @@ const ProductWidgets = ({ id }) => {
                     </div>
                 </div>
                 <ReviewsList reviews={reviews}></ReviewsList>
+                <ReviewsForm
+                    onSubmitForm={onSubmitForm}
+                ></ReviewsForm>
             </Container>
         </div>
     );
