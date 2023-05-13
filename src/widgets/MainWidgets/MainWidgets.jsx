@@ -1,9 +1,9 @@
-import { CatalogList } from '../../../components/CatalogList';
-import { Container } from '../../../UI/Container';
-import { Title } from '../../../UI/Title';
-import styles from './catalog.module.scss';
+import styles from './main.module.scss';
+import { Container } from "../../UI/Container";
+import { Title } from "../../UI/Title";
+import { CatalogList } from '../../components/CatalogList';
 
-const CatalogListWidgets = () => {
+const MainWidgets = () => {
     const catalogList = [
         {
             category: 'rabbits',
@@ -33,24 +33,16 @@ const CatalogListWidgets = () => {
     ];
 
     return (
-        <div className={styles.catalog}>
+        <>
             <Container>
-                <Title className={styles.catalog__title}>Каталог товаров</Title>
-                {/* <ul className={styles.catalog__list}>
-                    {catalogList.map(item => (
-                        <CatalogListItem
-                            id={item?.category}
-                            title={item?.title}
-                            image={item?.image}
-                        ></CatalogListItem>
-                    ))}
-                </ul> */}
+                <Title>Каталог товаров</Title>
                 <CatalogList catalogList={catalogList}></CatalogList>
+                <Title>Популярные товары</Title>
             </Container>
-        </div>
+        </>
     );
 };
 
 export {
-    CatalogListWidgets
+    MainWidgets
 };
