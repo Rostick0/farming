@@ -1,7 +1,8 @@
 import ReactPaginate from "react-paginate";
 import styles from './paginate.module.scss';
+import { memo } from "react";
 
-const Paginate = ({
+const Paginate = memo(({
     className,
     forcePage,
     pageCount,
@@ -44,7 +45,7 @@ const Paginate = ({
             renderOnZeroPageCount={null}
         ></ReactPaginate>
     );
-};
+});
 
 export {
     Paginate

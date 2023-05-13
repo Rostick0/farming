@@ -1,0 +1,14 @@
+@import './../../styles/vars';
+
+.burger {
+    cursor: pointer;
+    transition: 200ms;
+
+    &:hover {
+        stroke: $ui_color_hover;
+    }
+
+    &:active {
+        stroke: $ui_color_active;
+    }
+}
