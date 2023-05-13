@@ -66,20 +66,20 @@
         grid-template-columns: repeat(4, 1fr);
     }
 
-    &__product_item {
-        &_application {
-            display: flex;
-            column-gap: 0.5rem;
-            margin-top: 0.75rem;
+    // &__product_item {
+    //     &_application {
+    //         display: flex;
+    //         column-gap: 0.5rem;
+    //         margin-top: 0.75rem;
 
-            &>*,
-            button {
-                font-size: 0.85rem;
-                flex: 1 0 calc(50% - 0.5rem);
-                width: 100%;
-            }
-        }
-    }
+    //         &>*,
+    //         button {
+    //             font-size: 0.85rem;
+    //             flex: 1 0 calc(50% - 0.5rem);
+    //             width: 100%;
+    //         }
+    //     }
+    // }
 
     &__paginate {
         display: flex;

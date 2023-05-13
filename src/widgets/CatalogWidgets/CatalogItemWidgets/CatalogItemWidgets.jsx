@@ -1,4 +1,4 @@
-import { Link, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { Button } from '../../../UI/Button';
 import { Checkbox } from '../../../UI/Checkbox';
 import { Input } from '../../../UI/Input';
@@ -9,6 +9,7 @@ import styles from './catalog.module.scss';
 import { Select } from '../../../UI/Select';
 import { Paginate } from '../../../UI/Paginate';
 import { Container } from '../../../UI/Container';
+import { ProductCatalogApplication } from '../../../components/ProductCatalogApplication';
 
 const CatalogItemWidgets = () => {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -100,12 +101,7 @@ const CatalogItemWidgets = () => {
                                     title={product?.title}
                                     price={product?.price}
                                     application={
-                                        <div className={styles.catalog__product_item_application}>
-                                            <Link to={`/product/${product?.id}`}>
-                                                <Button>Подробнее</Button>
-                                            </Link>
-                                            <Button styleColor="green-outline">В корзину</Button>
-                                        </div>
+                                        <ProductCatalogApplication productId={product?.id}></ProductCatalogApplication>
                                     }
                                 ></Product>
                             ))}

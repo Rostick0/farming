@@ -3,7 +3,7 @@ import { LayoutDefault } from "./../components/LayoutDefault";
 
 const MainPage = () => {
     return (
-        <LayoutDefault>
+        <LayoutDefault mainPaddingTop="0">
             <MainWidgets></MainWidgets>
         </LayoutDefault>
     );

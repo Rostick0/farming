@@ -1,0 +1,13 @@
+.application {
+    display: flex;
+    flex-wrap: wrap;
+    grid-gap: 0.5rem;
+    margin-top: 0.75rem;
+
+    &>*,
+    button {
+        font-size: 0.85rem;
+        flex: 1 0 calc(50% - 0.5rem);
+        width: 100%;
+    }
+}

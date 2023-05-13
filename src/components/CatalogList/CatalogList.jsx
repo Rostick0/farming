@@ -6,6 +6,7 @@ const CatalogList = ({ catalogList }) => {
         <ul className={styles.catalog}>
             {catalogList?.map(item => (
                 <CatalogListItem
+                    key={item?.id}
                     id={item?.category}
                     title={item?.title}
                     image={item?.image}
