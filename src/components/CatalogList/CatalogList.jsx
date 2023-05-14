@@ -10,6 +10,7 @@ const CatalogList = ({ catalogList }) => {
                     id={item?.category}
                     title={item?.title}
                     image={item?.image}
+                    category={item?.category}
                 ></CatalogListItem>
             ))}
         </ul>

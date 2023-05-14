@@ -13,7 +13,7 @@ import { useSelector } from "react-redux";
 const Header = ({ headerStyle = {} }) => {
     const [activeNav, setActiveNav] = useState(false);
     const classActiveNav = activeNav ? ' ' + styles.header__mobile_menu_active : '';
-    const countProducts = useSelector(state => state.cart.productsLocal)?.length
+    const countProducts = useSelector(state => state.cart.products)?.length
 
     return (
         <header className={styles.header} style={headerStyle}>
@@ -22,7 +22,7 @@ const Header = ({ headerStyle = {} }) => {
                     <div className={styles.header__computer}>
                         <div className={styles.header__computer_top}>
                             <LogoSite></LogoSite>
-                            <HeaderSearch></HeaderSearch>
+                            {/* <HeaderSearch></HeaderSearch> */}
                             <div className={styles.header__icons}>
                                 <Link className={styles.header__icon} to="/cart">
                                     <svg className={styles.header__icon_cart} stroke="#000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
@@ -40,7 +40,7 @@ const Header = ({ headerStyle = {} }) => {
                             </div>
                         </div>
                         <div className={styles.header__computer_bottom}>
-                            <HeaderCatalog></HeaderCatalog>
+                            {/* <HeaderCatalog></HeaderCatalog> */}
                             <nav className={styles.header__nav}>
                                 <ul className={styles.header__navigation}>
                                     <li className={styles.header__navigation_item}>

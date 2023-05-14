@@ -6,22 +6,14 @@ import { ReviewsList } from "../../components/ReviewsList";
 import { Container } from "../../UI/Container";
 import { ProductSliderImage } from "../../components/ProductSliderImage/ProductSliderImage";
 import { ReviewsForm } from "../../components/ReviewsForm";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { productAdd } from "../../store/slices/cart";
 import { useState } from "react";
 
 const ProductWidgets = ({ id }) => {
     const [count, setCount] = useState(1);
     const dispatch = useDispatch();
-
-    const images = [];
-
-    for (let i = 1; i <= 10; i++) {
-        images.push({
-            id: i,
-            src: `https://swiperjs.com/demos/images/nature-${i}.jpg`
-        })
-    }
+    const product = useSelector(state => state.products.productsAll[state.products.productsAll.findIndex(product => product.id == id)])
 
     const reviews = [
         {
@@ -68,11 +60,11 @@ const ProductWidgets = ({ id }) => {
                 <Title>Кролики</Title>
                 <div className={styles.product__content}>
                     <div className={styles.product__images}>
-                        <ProductSliderImage images={images}></ProductSliderImage>
+                        <ProductSliderImage images={product?.images}></ProductSliderImage>
                     </div>
                     <div className={styles.product__info}>
                         <div className={styles.product__amount}>
-                            <div className={styles.product__price}>300 ₽</div>
+                            <div className={styles.product__price}>{product?.price} ₽</div>
                             <div className={styles.product__amount_application}>
                                 <CounterInput
                                     count={count}
@@ -80,29 +72,41 @@ const ProductWidgets = ({ id }) => {
                                 ></CounterInput>
                                 <Button
                                     className={styles.product__buy}
-                                    onClick={() => dispatch(productAdd({ id: 1, count }))}
+                                    onClick={() => dispatch(productAdd({
+                                        id,
+                                        image: product?.image,
+                                        title: product?.title,
+                                        price: product?.price,
+                                        count
+                                    }))}
                                 >В корзину</Button>
                             </div>
                         </div>
                         <ul className={styles.product__info_list}>
                             <li className={styles.product__info_item}>
                                 <strong>Рейтинг:</strong>
-                                <span>5/5</span>
+                                <span>{product.raiting}/5</span>
                             </li>
                             <li className={styles.product__info_item}>
                                 <strong>Производитель:</strong>
-                                <span>Неизвестно</span>
+                                <span>{product.vendor}</span>
                             </li>
                             <li className={styles.product__info_item}>
                                 <strong>Статус:</strong>
-                                <span>В наличии</span>
+                                <span>{product.is_have ? 'В наличии' : 'Нет в наличии'}</span>
                             </li>
                         </ul>
-                        <strong>Описание:</strong>
-                        <div className={styles.product__description}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis, id voluptates obcaecati totam repudiandae fuga assumenda natus quam mollitia ipsum doloremque reprehenderit facilis. Sed accusamus nam asperiores ex non! Expedita.</div>
+                        {
+                            product?.description
+                            &&
+                            <>
+                                <strong>Описание:</strong>
+                                <div className={styles.product__description}>{product?.description}</div>
+                            </>
+                        }
                     </div>
                 </div>
-                <ReviewsList reviews={reviews}></ReviewsList>
+                <ReviewsList reviews={product?.reviews}></ReviewsList>
                 <ReviewsForm
                     onSubmitForm={onSubmitForm}
                 ></ReviewsForm>

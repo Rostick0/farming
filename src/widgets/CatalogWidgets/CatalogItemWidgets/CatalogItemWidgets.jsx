@@ -1,4 +1,3 @@
-import { useSearchParams } from 'react-router-dom';
 import { Button } from '../../../UI/Button';
 import { Checkbox } from '../../../UI/Checkbox';
 import { Input } from '../../../UI/Input';
@@ -7,25 +6,25 @@ import { CatalogFilterItem } from '../../../components/CatalogFilterItem';
 import { Product } from './../../../UI/Product';
 import styles from './catalog.module.scss';
 import { Select } from '../../../UI/Select';
-import { Paginate } from '../../../UI/Paginate';
+// import { Paginate } from '../../../UI/Paginate';
 import { Container } from '../../../UI/Container';
 import { SvgXDelete } from '../../../UI/SvgXDelete';
 import { ProductCatalogApplication } from '../../../components/ProductCatalogApplication';
 import { SvgBurger } from '../../../UI/SvgBurger';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Label } from '../../../UI/Label';
 import { Formik, Form, Field } from 'formik';
-import LazyLoad from 'react-lazy-load';
-import { removeEmpty } from '../../../utils/object';
+import { useDispatch, useSelector } from 'react-redux';
+import { setCategory, sortProduct } from '../../../store/slices/products';
 
-const CatalogItemWidgets = () => {
-    const [searchParams, setSearchParams] = useSearchParams();
-    const queryParamPage = 'page';
-    const pageCount = 100;
-    const queryPage = searchParams.get(queryParamPage);
-    const setQuery = (page) => {
-        setSearchParams(prev => prev = new URLSearchParams({ page: page }));
-    };
+const CatalogItemWidgets = ({ category, categoryTitle }) => {
+    const products = useSelector(state => state.products.products);
+    const dispatch = useDispatch();
+    const checkCategory = categoryTitle ? { category } : {}
+
+    useEffect(() => {
+        dispatch(setCategory({ ...checkCategory }))
+    }, []);
 
     const initialValues = {
         text: null,
@@ -36,13 +35,9 @@ const CatalogItemWidgets = () => {
         raiting: null
     };
     const onSubmitForm = (values, { setSubmitting, resetForm }) => {
-        console.log(searchParams)
-        const clearEmptyKeys = removeEmpty({ ...values, page: searchParams.get(queryParamPage) });
-        setSearchParams(new URLSearchParams(clearEmptyKeys));
+        dispatch(setCategory({ ...checkCategory, ...values }))
         setSubmitting(false);
-        resetForm(initialValues)
     };
-
 
     const [activeCatalog, setActiveCatalog] = useState(false);
     const classActiveCatalog = activeCatalog ? ' ' + styles.catalog__aside_active : '';
@@ -52,47 +47,14 @@ const CatalogItemWidgets = () => {
         { value: 'price_min', label: 'Сначала дешевые' },
         { value: 'a_z', label: 'По алфавиту' },
         { value: 'z_a', label: 'По алфавиту в обратном порядке' },
+        { value: 'reset', label: 'Сброс' }
     ];
 
-
-
-    const products = [
-        {
-            id: 1,
-            image: 'https://pet-q.com/wp-content/uploads/2018/06/2018_06_11-2_2-600x400.jpg',
-            title: 'Кролик белый',
-            price: '999'
-        },
-        {
-            id: 2,
-            image: 'http://wtalks.com/sites/default/files/imagecache/width_670_nowater/speak/105/imagepost/img_3974-1300x675.jpg',
-            title: 'Кролик оранжевый',
-            price: '899'
-        },
-        {
-            id: 3,
-            image: 'https://natalyland.ru/wp-content/uploads/1/c/b/1cbf6f8eebbe51e0f7a5f1d57c86a47c.jpeg',
-            title: 'Два кролика',
-            price: '1599'
-        },
-        {
-            id: 4,
-            image: 'https://sun9-48.userapi.com/impg/6ZNJubRfIGaq_sye3y8i6ZcK2RwfWh1iZLOwyQ/-beVEvaXbIo.jpg?size=604x604&quality=96&sign=b0c2044ab61bf300656de6e6a104c391&type=album',
-            title: 'Кролик дикий',
-            price: '1199'
-        },
-        {
-            id: 5,
-            image: 'https://i.pinimg.com/originals/e3/72/37/e37237b100ebd3e7a4a49e4aec33014c.jpg',
-            title: 'Кролик в травке',
-            price: '1999'
-        }
-    ];
 
     return (
         <div className={styles.catalog}>
             <Container>
-                <Title>Кролики</Title>
+                <Title>{categoryTitle ?? 'Все'}</Title>
                 <div className={styles.catalog__inner}>
                     <aside className={styles.catalog__aside + classActiveCatalog}>
                         <Formik
@@ -144,21 +106,12 @@ const CatalogItemWidgets = () => {
                                                 </Label>
                                             </CatalogFilterItem>
                                             <CatalogFilterItem className={styles.catalog__filter_item} title="В наличии">
-                                                <Field name="in_shop">
+                                                <Field name="is_have">
                                                     {({ field }) => (
                                                         <Label>
                                                             <Checkbox
                                                                 {...field}
-                                                            >В магазине</Checkbox>
-                                                        </Label>
-                                                    )}
-                                                </Field>
-                                                <Field name="in_delivery">
-                                                    {({ field }) => (
-                                                        <Label>
-                                                            <Checkbox
-                                                                {...field}
-                                                            >Доставка</Checkbox>
+                                                            >Да</Checkbox>
                                                         </Label>
                                                     )}
                                                 </Field>
@@ -193,6 +146,7 @@ const CatalogItemWidgets = () => {
                                 <Select
                                     className={styles.catalog__sort_select}
                                     options={sortOptions}
+                                    onChange={option => dispatch(sortProduct({ typeSort: option.value }))}
                                 ></Select>
                             </div>
                         </div>
@@ -206,25 +160,15 @@ const CatalogItemWidgets = () => {
                                     title={product?.title}
                                     price={product?.price}
                                     application={
-                                        <ProductCatalogApplication productId={product?.id}></ProductCatalogApplication>
+                                        <ProductCatalogApplication product={product}></ProductCatalogApplication>
                                     }
                                 ></Product>
                             ))}
                         </div>
-                        <LazyLoad>
-                            <div className={styles.catalog__paginate}>
-                                <Paginate
-                                    className={styles.catalog__paginate_inner}
-                                    forcePage={queryPage}
-                                    pageCount={pageCount}
-                                    onPageChange={page => setQuery(page?.selected + 1)}
-                                ></Paginate>
-                            </div>
-                        </LazyLoad>
                     </div>
                 </div>
-            </Container>
-        </div>
+            </Container >
+        </div >
     );
 }
 
