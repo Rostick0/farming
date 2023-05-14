@@ -34,6 +34,8 @@
     }
 
     &__aside {
+        flex-shrink: 0;
+
         &_top {
             display: none;
             align-items: center;
