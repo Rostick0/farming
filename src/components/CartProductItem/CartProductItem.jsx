@@ -3,7 +3,7 @@ import { SvgXDelete } from '../../UI/SvgXDelete';
 import { LinkTo } from '../../UI/LinkTo';
 import styles from './product.module.scss';
 import { useDispatch } from 'react-redux';
-import { productDelete } from '../../store/slices/cart';
+import { editProductCount, productDelete } from '../../store/slices/cart';
 
 const CartProductItem = ({
     id,
@@ -33,7 +33,7 @@ const CartProductItem = ({
                         <div className={styles.d}>
                             <CounterInput
                                 count={count}
-                                onCountChange={e => console.log(e)}
+                                onCountChange={count => dispatch(editProductCount({ id, count }))}
                             ></CounterInput>
                             <div className={styles.product__price}><strong>Сумма:</strong> {price * count} ₽</div>
                         </div>

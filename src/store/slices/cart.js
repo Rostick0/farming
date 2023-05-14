@@ -1,33 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-// export const fetchLogin = createAsyncThunk(
-//     'authData/fetchLogin',
-//     async function (authObj) {
-//         const response = await fetch('https://jsonplaceholder.typicode.com/todos?_limit=10');
-
-//         const data = await response.json();
-
-//         console.log(data);
-
-//         return {
-//             authToken: 1235
-//         };
-//     }
-// )
-
-// export const fetchRegistration = createAsyncThunk(
-//     'authData/fetchRegistration',
-//     async function (authObj) {
-//         const response = await fetch('https://jsonplaceholder.typicode.com/todos?_limit=10');
-
-//         const data = await response.json();
-
-//         return {
-//             authToken: 1235
-//         };
-//     }
-// )
-
 const setLocalStorage = (productsLocal = []) => {
     if (!productsLocal.length && localStorage.getItem('cart')) {
         localStorage.removeItem('cart')
@@ -66,6 +38,14 @@ const productDeleteAllFunc = (state) => {
     setLocalStorage([]);
 };
 
+const editProductCountFunc = (state, action) => {
+    const productLocalIndex = [...state.productsLocal].findIndex(product => product.id === action.payload.id);
+    const productIndex = [...state.productsLocal].findIndex(product => product.id === action.payload.id);
+
+    state.productsLocal[productLocalIndex].count = action.payload.count;
+    state.products[productIndex].count = action.payload.count;
+};
+
 const initialState = {
     productsLocal: [
         {
@@ -90,7 +70,8 @@ export const cartSlice = createSlice({
     reducers: {
         productAdd: productAddFunc,
         productDelete: productDeleteFunc,
-        productDeleteAll: productDeleteAllFunc
+        productDeleteAll: productDeleteAllFunc,
+        editProductCount: editProductCountFunc
     },
     // extraReducers: {
     //     [fetchLogin.fulfilled]: (state, action) => {
@@ -114,4 +95,4 @@ export const cartSlice = createSlice({
     // }
 });
 
-export const { productAdd, productDelete, productDeleteAll } = cartSlice.actions
+export const { productAdd, productDelete, productDeleteAll, editProductCount } = cartSlice.actions
