@@ -24,9 +24,8 @@ const productAddFunc = (state, action) => {
 };
 
 const productDeleteFunc = (state, action) => {
-    const productIndex = [...state.product].findIndex(product => product.id === action.payload.id);
-
-    state.products.splice(productIndex, 1);
+    const productIndex = [...state.products].findIndex(product => product.id === action.payload.id);
+    state.products.splice(productIndex, 1)
     setLocalStorage(state.products);
 }
 

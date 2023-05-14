@@ -5,8 +5,10 @@ import styles from './result.module.scss';
 const CartResult = () => {
     const products = useSelector(state => state.cart.products);
 
+    console.log(products)
+
     const amountProducts = products.reduce(
-        (prev, current) => prev = current?.count * current?.price, 0
+        (prev, current) => prev += current?.count * current?.price, 0
     );
 
     if (!products?.length) return;
