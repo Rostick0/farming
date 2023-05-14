@@ -2,11 +2,11 @@ import { Footer } from "../Footer";
 import { Header } from "../Header";
 import styles from './layout_default.module.scss';
 
-const LayoutDefault = ({ mainPaddingTop, children }) => {
+const LayoutDefault = ({ headerStyle, mainPaddingTop, children }) => {
 
     return (
         <div className={styles.wrapper}>
-            <Header />
+            <Header headerStyle={headerStyle} />
             <main className={styles.main} style={{ paddingTop: mainPaddingTop + 'px' }}>{children}</main>
             <Footer />
         </div>

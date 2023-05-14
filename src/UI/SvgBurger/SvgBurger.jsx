@@ -2,6 +2,7 @@ import styles from './burger.module.scss';
 
 const SvgBurger = ({
     className,
+    strokeWidth = 2,
     ...other
 }) => {
     const styleClassName = className ? ' ' + className : '';
@@ -16,9 +17,9 @@ const SvgBurger = ({
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             {...other}>
-            <path d="M4 18L20 18" strokeWidth="2" strokeLinecap="round" />
-            <path d="M4 12L20 12" strokeWidth="2" strokeLinecap="round" />
-            <path d="M4 6L20 6" strokeWidth="2" strokeLinecap="round" />
+            <path d="M4 18L20 18" strokeWidth={strokeWidth} strokeLinecap="round" />
+            <path d="M4 12L20 12" strokeWidth={strokeWidth} strokeLinecap="round" />
+            <path d="M4 6L20 6" strokeWidth={strokeWidth} strokeLinecap="round" />
         </svg>
     );
 };

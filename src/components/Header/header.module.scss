@@ -6,27 +6,61 @@
     position: relative;
     z-index: 5;
 
-    &__title {
-        font-size: 2.5rem;
-        font-weight: 700;
-        transform: skew(-5deg);
+    &__computer {
+        &_bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-        span {
-            color: $ui_color;
-            // font-weight: 00;
+        &_top {
+            @extend .header__computer_bottom;
+            column-gap: 2rem;
+            margin-bottom: 1.25rem;
         }
     }
 
-    &__container_bottom {
-        display: flex;
+    &__mobile {
+        display: none;
         align-items: center;
         justify-content: space-between;
-    }
 
-    &__container_top {
-        @extend .header__container_bottom;
-        column-gap: 2rem;
-        margin-bottom: 1.25rem;
+        &_menu {
+            background-color: $ui_color_second;
+            padding: 0.75rem 0;
+            position: fixed;
+            left: 0;
+            top: 0;
+            transition: 800ms;
+            transform: translateX(150%);
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+
+            &_active {
+                transform: translateX(0);
+            }
+        }
+        
+        &_top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            column-gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        &_navigation {
+            display: flex;
+            flex-direction: column;
+            row-gap: 0.5rem;
+
+            a {
+                border-bottom: 1px solid $ui_color_active;
+                display: block;
+                padding-bottom: 0.25rem;
+            }
+        }
     }
 
     &__icons {
@@ -80,5 +114,17 @@
     &__navigation {
         display: flex;
         grid-gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+        padding: 0.75rem;
+
+        &__computer {
+            display: none;
+        }
+
+        &__mobile {
+            display: flex;
+        }
     }
 }
