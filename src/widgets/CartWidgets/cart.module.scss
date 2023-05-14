@@ -13,6 +13,17 @@
     &__links {
         display: flex;
         justify-content: space-between;
+        row-gap: 0.5rem;
         margin-top: 2rem;
+    }
+
+    @media (max-width: 480px) {
+        &__links {
+            flex-direction: column;
+
+            button {
+                width: 100%;
+            }
+        }
     }
 }

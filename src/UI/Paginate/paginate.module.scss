@@ -4,6 +4,7 @@
     border-radius: 0.25rem;
     box-shadow: 0 0.25rem 0.25rem $box_shadow_color;
     display: inline-flex;
+    flex-wrap: wrap;
     overflow: hidden;
 
     &__break {

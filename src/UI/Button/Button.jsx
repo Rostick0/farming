@@ -1,6 +1,7 @@
+import { memo } from 'react';
 import styles from './button.module.scss';
 
-const Button = ({
+const Button = memo(({
     className,
     children,
     styleColor,
@@ -16,7 +17,7 @@ const Button = ({
             {...other}
         >{children}</button>
     );
-};
+});
 
 export {
     Button

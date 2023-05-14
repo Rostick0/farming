@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 import { Button } from '../../UI/Button';
 import styles from './application.module.scss';
+import { memo } from 'react';
 
-const ProductCatalogApplication = ({ productId }) => {
+const ProductCatalogApplication = memo(({ productId }) => {
     return (
         <div className={styles.application}>
             <Link to={`/product/${productId}`}>
@@ -11,7 +12,7 @@ const ProductCatalogApplication = ({ productId }) => {
             <Button styleColor="green-outline">В корзину</Button>
         </div>
     );
-};
+});
 
 export {
     ProductCatalogApplication

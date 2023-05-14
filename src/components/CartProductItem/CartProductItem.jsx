@@ -22,19 +22,21 @@ const CartProductItem = ({
             </div>
             <div className={styles.product__content}>
                 <div className={styles.product__content_top}>
-                    <div className={styles.d}>
-                        <LinkTo
-                            className={styles.product__title}
-                            to={`/product/${id}`}
-                        >{title}</LinkTo>
-                        <div className={styles.product__price}>{price} ₽ за 1</div>
-                    </div>
-                    <div className={styles.d}>
-                        <CounterInput
-                            count={count}
-                            onCountChange={e => console.log(e)}
-                        ></CounterInput>
-                        <div className={styles.product__price}><strong>Сумма:</strong> {price * count} ₽</div>
+                    <div className={styles.product__info}>
+                        <div className={styles.d}>
+                            <LinkTo
+                                className={styles.product__title}
+                                to={`/product/${id}`}
+                            >{title}</LinkTo>
+                            <div className={styles.product__price}>{price} ₽ за 1</div>
+                        </div>
+                        <div className={styles.d}>
+                            <CounterInput
+                                count={count}
+                                onCountChange={e => console.log(e)}
+                            ></CounterInput>
+                            <div className={styles.product__price}><strong>Сумма:</strong> {price * count} ₽</div>
+                        </div>
                     </div>
                     <SvgXDelete
                         className={styles.product__delete}

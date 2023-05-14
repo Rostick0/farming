@@ -1,6 +1,7 @@
+import { memo } from 'react';
 import styles from './burger.module.scss';
 
-const SvgBurger = ({
+const SvgBurger = memo(({
     className,
     strokeWidth = 2,
     ...other
@@ -22,7 +23,7 @@ const SvgBurger = ({
             <path d="M4 6L20 6" strokeWidth={strokeWidth} strokeLinecap="round" />
         </svg>
     );
-};
+});
 
 export {
     SvgBurger

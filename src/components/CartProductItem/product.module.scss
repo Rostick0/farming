@@ -32,11 +32,40 @@
         }
     }
 
+    &__info {
+        display: flex;
+        flex-wrap: wrap;
+        grid-gap: 0.5rem 1.5rem;
+    }
+
     &__delete {
+        flex-shrink: 0;
         margin-left: auto;
     }
 
     &__description {
         margin-top: 0.75rem;
+    }
+
+    @media (max-width: 650px) {
+        &__title {
+            width: initial;
+        }
+
+        &__content {
+            &_top {
+                grid-gap: 0.5rem;
+            }
+        }
+
+        &__image {
+            flex-shrink: 0;
+    
+            img {
+                object-fit: cover;
+                width: 33vw;
+                height: 25vw;
+            }
+        }
     }
 }

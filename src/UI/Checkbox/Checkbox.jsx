@@ -1,6 +1,7 @@
+import { memo } from 'react';
 import styles from './checkbox.module.scss';
 
-const Checkbox = ({
+const Checkbox = memo(({
     className,
     children,
     ...other
@@ -20,7 +21,7 @@ const Checkbox = ({
             <span className={styles.checkbox__text}>{children}</span>
         </label>
     );
-};
+});
 
 export {
     Checkbox

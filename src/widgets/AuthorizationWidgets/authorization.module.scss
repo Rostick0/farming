@@ -25,7 +25,13 @@
 
     &__links {
         display: flex;
+        grid-gap: 0.5rem;
+        flex-wrap: wrap;
         justify-content: space-between;
         margin-top: 1.25rem;
+    }
+
+    @media (max-width:768px) {
+        padding: 1.25rem 1.75rem;
     }
 }

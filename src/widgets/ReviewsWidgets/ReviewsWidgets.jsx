@@ -4,7 +4,7 @@ import { ReviewsForm } from '../../components/ReviewsForm';
 const ReviewsWidgets = () => {
     const onSubmitForm = (values, { setSubmitting }) => {
         setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
+            alert('Ваш отзыв отправлен');
             setSubmitting(false);
         }, 400);
     };

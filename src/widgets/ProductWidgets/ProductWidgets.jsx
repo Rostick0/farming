@@ -57,7 +57,7 @@ const ProductWidgets = ({ id }) => {
 
     const onSubmitForm = (values, { setSubmitting }) => {
         setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
+            alert('Ваш отзыв отправлен в поддержку, спасибо!');
             setSubmitting(false);
         }, 400);
     };

@@ -1,6 +1,7 @@
+import { memo } from 'react';
 import styles from './input.module.scss';
 
-const Input = ({
+const Input = memo(({
     className,
     ...other
 }) => {
@@ -12,7 +13,7 @@ const Input = ({
             {...other}
         />
     );
-};
+});
 
 export {
     Input
