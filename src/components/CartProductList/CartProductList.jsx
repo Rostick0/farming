@@ -17,7 +17,7 @@ const CartProductList = ({ products }) => {
                     ></CartProductItem>
                 ))}
             </div>
-            <Button className={styles.product__more}>Загрузить ещё</Button>
+            {products?.length > 10 && <Button className={styles.product__more}>Загрузить ещё</Button>}
         </>
     );
 };

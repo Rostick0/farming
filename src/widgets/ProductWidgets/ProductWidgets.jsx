@@ -6,8 +6,14 @@ import { ReviewsList } from "../../components/ReviewsList";
 import { Container } from "../../UI/Container";
 import { ProductSliderImage } from "../../components/ProductSliderImage/ProductSliderImage";
 import { ReviewsForm } from "../../components/ReviewsForm";
+import { useDispatch } from "react-redux";
+import { productAdd } from "../../store/slices/cart";
+import { useState } from "react";
 
 const ProductWidgets = ({ id }) => {
+    const [count, setCount] = useState(1);
+    const dispatch = useDispatch();
+
     const images = [];
 
     for (let i = 1; i <= 10; i++) {
@@ -69,9 +75,13 @@ const ProductWidgets = ({ id }) => {
                             <div className={styles.product__price}>300 ₽</div>
                             <div className={styles.product__amount_application}>
                                 <CounterInput
-
+                                    count={count}
+                                    onCountChange={setCount}
                                 ></CounterInput>
-                                <Button className={styles.product__buy}>В корзину</Button>
+                                <Button
+                                    className={styles.product__buy}
+                                    onClick={() => dispatch(productAdd({ id: 1, count }))}
+                                >В корзину</Button>
                             </div>
                         </div>
                         <ul className={styles.product__info_list}>

@@ -8,10 +8,12 @@ import { LogoSite } from "../../UI/LogoSite";
 import { SvgBurger } from "../../UI/SvgBurger";
 import { useState } from "react";
 import { SvgXDelete } from "../../UI/SvgXDelete";
+import { useSelector } from "react-redux";
 
 const Header = ({ headerStyle = {} }) => {
     const [activeNav, setActiveNav] = useState(false);
     const classActiveNav = activeNav ? ' ' + styles.header__mobile_menu_active : '';
+    const countProducts = useSelector(state => state.cart.productsLocal)?.length
 
     return (
         <header className={styles.header} style={headerStyle}>
@@ -30,7 +32,7 @@ const Header = ({ headerStyle = {} }) => {
                                             <circle cx="12" cy="27" r="2" />
                                         </g>
                                     </svg>
-                                    <span className={styles.header__icon_counter}>0</span>
+                                    <span className={styles.header__icon_counter}>{countProducts}</span>
                                 </Link>
                                 <Link className={styles.header__icon} to="/login">
                                     <svg className={styles.header__icon_profile} viewBox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg"><title /><g id="about"><path d="M16,16A7,7,0,1,0,9,9,7,7,0,0,0,16,16ZM16,4a5,5,0,1,1-5,5A5,5,0,0,1,16,4Z" /><path d="M17,18H15A11,11,0,0,0,4,29a1,1,0,0,0,1,1H27a1,1,0,0,0,1-1A11,11,0,0,0,17,18ZM6.06,28A9,9,0,0,1,15,20h2a9,9,0,0,1,8.94,8Z" /></g></svg>

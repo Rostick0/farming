@@ -5,17 +5,13 @@ import { Container } from '../../UI/Container';
 import styles from './cart.module.scss';
 import { CartResult } from '../../components/CartResult';
 import { CartProductList } from '../../components/CartProductList';
+import { useDispatch, useSelector } from 'react-redux';
+import { productDeleteAll } from '../../store/slices/cart';
 
 const CartWidgets = () => {
-    const products = [
-        {
-            id: 1,
-            image: 'https://pet-q.com/wp-content/uploads/2018/06/2018_06_11-2_2-600x400.jpg',
-            title: 'Кролик белый',
-            price: '999',
-            count: 1
-        }
-    ];
+    const dispatch = useDispatch();
+
+    const products = useSelector(state => state.cart.products);
 
     return (
         <div>
@@ -23,12 +19,18 @@ const CartWidgets = () => {
                 <Title>Корзина</Title>
                 <div className={styles.cart__content}>
                     <div className={styles.cart__product}>
-                        <CartProductList products={products}></CartProductList>
+                        {products?.length ?
+                            <CartProductList products={products}></CartProductList>
+                            : 'Товаров нет'}
                         <div className={styles.cart__links}>
                             <LinkTo to="/catalog">
                                 <Button styleColor="green-outline">В каталог</Button>
                             </LinkTo>
-                            <Button styleColor="red">Очистка корзины</Button>
+                            {products?.length > 0 &&
+                                <Button
+                                    onClick={() => dispatch(productDeleteAll())}
+                                    styleColor="red"
+                                >Очистка корзины</Button>}
                         </div>
                     </div>
                     <CartResult></CartResult>

@@ -2,6 +2,8 @@ import { CounterInput } from '../../UI/CounterInput';
 import { SvgXDelete } from '../../UI/SvgXDelete';
 import { LinkTo } from '../../UI/LinkTo';
 import styles from './product.module.scss';
+import { useDispatch } from 'react-redux';
+import { productDelete } from '../../store/slices/cart';
 
 const CartProductItem = ({
     id,
@@ -11,6 +13,8 @@ const CartProductItem = ({
     count,
     description
 }) => {
+    const dispatch = useDispatch();
+
     return (
         <div className={styles.product}>
             <div className={styles.product__image}>
@@ -32,7 +36,10 @@ const CartProductItem = ({
                         ></CounterInput>
                         <div className={styles.product__price}><strong>Сумма:</strong> {price * count} ₽</div>
                     </div>
-                    <SvgXDelete className={styles.product__delete}></SvgXDelete>
+                    <SvgXDelete
+                        className={styles.product__delete}
+                        onClick={() => dispatch(productDelete({ id }))}
+                    ></SvgXDelete>
                 </div>
                 {description && <div className={styles.product__description}>{description}</div>}
             </div>
