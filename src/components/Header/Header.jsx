@@ -40,7 +40,7 @@ const Header = ({ headerStyle = {} }) => {
                             </div>
                         </div>
                         <div className={styles.header__computer_bottom}>
-                            {/* <HeaderCatalog></HeaderCatalog> */}
+                            <HeaderCatalog></HeaderCatalog>
                             <nav className={styles.header__nav}>
                                 <ul className={styles.header__navigation}>
                                     <li className={styles.header__navigation_item}>
@@ -68,7 +68,7 @@ const Header = ({ headerStyle = {} }) => {
                         <div className={styles.header__mobile_menu + classActiveNav}>
                             <Container>
                                 <div className={styles.header__mobile_top}>
-                                    <HeaderSearch></HeaderSearch>
+                                    {/* <HeaderSearch></HeaderSearch> */}
                                     <SvgXDelete
                                         onClick={() => setActiveNav(false)}
                                     ></SvgXDelete>
